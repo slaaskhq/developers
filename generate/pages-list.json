@@ -11,7 +11,9 @@
       "javascript-sdk-events": { "title": "Events" },
       "open-slaask-from-button": { "title": "Opening Slaask from an item/button" },
       "single-page-application": { "title": "Enabling Slaask to work with Single-Page Application" },
-      "turbolinks": { "title": "Enabling Slaask to work with Turbolinks" }
+      "turbolinks": { "title": "Enabling Slaask to work with Turbolinks" },
+      "limiting-slaask-to-a-few-pages": { "title": "Limiting Slaask to a few pages" },
+      "routing-chats-from-specific-urls": { "title": "Routing chats from specific URLs" }
     }
   },
   "ios-sdk": {
@@ -53,6 +55,12 @@
       "disabling-is-typing-indicator": { "title": "Disabling the \"is typing\" indicator" },
       "slaask-branding": { "title": "Slaask Brand Guidelines" },
       "slaask-logos": { "title": "Slaask Logos" }
+    }
+  },
+  "troubleshootings": {
+    "name": "Troubleshootings",
+    "pages": {
+      "whitelisting-pusher-on-your-site": { "title": "Whitelisting Pusher on your site" }
     }
   }
 }

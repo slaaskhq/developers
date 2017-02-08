@@ -15,23 +15,20 @@
 
         <p>To use this feature, here is the code your developers will need to make it happen using jQuery:<br/>
 
-        <code>var dispatch = [{ referrer:'referrer1.com', group_id:1 },<br/><br/>
+        <pre class="line-numbers language-markup" data-language="markup">var dispatch = [
+  { referrer:'referrer1.com', group_id:1 },
+  { referrer:'referrer2.com', group_id:2 },
+  { referrer:'referrer3.com', group_id:3 }
+]
 
-        { referrer:'referrer2.com', group_id:2 },<br/><br/>
+var results  = $.grep(dispatch, function(e){ return e.referrer==document.referrer; });
+if(results.length==0) {
+  _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+} else{
+  _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx", { user_group_id: results[0].group_id });
+}
 
-        { referrer:'referrer3.com', group_id:3 }]<br/><br/>
-
-        var results   = $.grep(dispatch, function(e){ return e.referrer==document.referrer; });<br/><br/>
-
-        if(results.length==0) {<br/><br/>
-
-         _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");<br/><br/>
-
-        } else{<br/><br/>
-
-         _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx", { user_group_id: results[0].group_id });<br/><br/> 
-
-        }</code>
+</pre>
 
         <h2>Some useful information you should know :</h2>
 
