@@ -1,0 +1,62 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Limiting Slaask to a few pages</h1>
+      </header>
+
+      <section>
+        <p>There are two options for you to limit Slaask's presence to just a few pages or only one page on your site, for example, your landing page.</p>
+
+        <h2>Option 1</h2>
+
+        <p>You can include the Slaask snippet on the pages where you would like to display the Slaask widget.</p> 
+
+        <p>This will give you the ability to only show the Slaask widget on some pages of your site.</p>
+
+        <p>For example, some of the Slaask users are only showing the widget to their logged-in users. In that case, other visitors have no access to their live support unless they log in.</p>
+
+        <h2>Option 2</h2>
+
+        <p>You can integrate the following code everywhere on your website.</p>
+
+        <p>In this code snippet you can add the urls of the pages where you want your Slaask livechat to appear. In other words, your Slaask livechat will not appear on pages that are not included in this code snippet. E.g.: “https://get.slaask.com/”, “https://get.slaask.com/pricing/”</p>
+
+        <pre>
+          <script type="text/javascript">
+
+            // You can remove or add links here to load Slaask only on specific pages.
+
+            var pages = [
+
+              "https://get.slaask.com/",
+
+              "https://get.slaask.com/pricing/",
+
+              "https://get.slaask.com/features/"
+
+            ];
+
+             
+
+            for (var i = 0; i < pages.length; i++) {
+
+              if(window.location.href.indexOf(pages[i]) > -1) {
+
+                _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+
+              }
+
+            }
+
+            </script>
+          </pre>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>

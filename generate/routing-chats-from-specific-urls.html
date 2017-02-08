@@ -1,0 +1,53 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Routing chats from specific URLs</h1>
+      </header>
+
+      <section>
+        <p>At Slaask, you can assign chats to specific people on your team—not only based on topics (to learn more about routing chats using topics: <a href="https://help.slaask.com/hc/en-us/articles/208777245">Understanding automatic chat dispatching</a>, but also based on specific incoming URLs.</p>
+
+        <p>In other words, you can configure Slaask in such a way that only certain team members on your team will receive the requests from your leads/customers who come to your website via a specific URL.</p>
+
+        <p>To use this feature, here is the code your developers will need to make it happen using jQuery:<br/>
+
+        <code>var dispatch = [{ referrer:'referrer1.com', group_id:1 },<br/><br/>
+
+        { referrer:'referrer2.com', group_id:2 },<br/><br/>
+
+        { referrer:'referrer3.com', group_id:3 }]<br/><br/>
+
+        var results   = $.grep(dispatch, function(e){ return e.referrer==document.referrer; });<br/><br/>
+
+        if(results.length==0) {<br/><br/>
+
+         _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");<br/><br/>
+
+        } else{<br/><br/>
+
+         _slaask.init("xxxxxxxxxxxxxxxxxxxxxxxxxxxx", { user_group_id: results[0].group_id });<br/><br/> 
+
+        }</code>
+
+        <h2>Some useful information you should know :</h2>
+
+        <ul>
+          <li>Dispatch is an array of objects</li>
+          <ul>
+            <li>The objects are composed by:</li>
+              <ul>
+                <li><b>referrer:</b> The referrer you want.</li>
+                <li><b>group_id:</b> The ID of the dispatching group you want to attribute to the previous referrer (you can find those ID from your Slaask account -> Personalization -> Navigation -> Automatic chat dispatching -> The group ID is the number behind “#” in the brackets right after the name of your group.)</li>
+              </ul>
+          </ul>
+        </ul>
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
