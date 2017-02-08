@@ -13,7 +13,7 @@
 
         <h2>Option 1</h2>
 
-        <p>You can include the Slaask snippet on the pages where you would like to display the Slaask widget.</p> 
+        <p>You can include the Slaask snippet on the pages where you would like to display the Slaask widget.</p>
 
         <p>This will give you the ability to only show the Slaask widget on some pages of your site.</p>
 
@@ -23,36 +23,24 @@
 
         <p>You can integrate the following code everywhere on your website.</p>
 
-        <p>In this code snippet you can add the urls of the pages where you want your Slaask livechat to appear. In other words, your Slaask livechat will not appear on pages that are not included in this code snippet. E.g.: “https://get.slaask.com/”, “https://get.slaask.com/pricing/”</p>
+        <p>In this code snippet you can add the urls of the pages where you want your Slaask livechat to appear. In other words, your Slaask livechat will not appear on pages that are not included in this code snippet. E.g.: <code>https://get.slaask.com</code>, <code>https://get.slaask.com/pricing</code></p>
 
-        <pre>
-          <script type="text/javascript">
+        <pre class="line-numbers language-markup" data-language="markup">&lt;script type="text/javascript"&gt;
+  // You can remove or add links here to load Slaask only on specific pages.
 
-            // You can remove or add links here to load Slaask only on specific pages.
+  var pages = [
+    "https://get.slaask.com/",
+    "https://get.slaask.com/pricing/",
+    "https://get.slaask.com/features/"
+  ];
 
-            var pages = [
+  for (var i = 0; i < pages.length; i++) {
+    if(window.location.href.indexOf(pages[i]) > -1) {
+      _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    }
+  }
+&lt;/script&gt;
 
-              "https://get.slaask.com/",
-
-              "https://get.slaask.com/pricing/",
-
-              "https://get.slaask.com/features/"
-
-            ];
-
-             
-
-            for (var i = 0; i < pages.length; i++) {
-
-              if(window.location.href.indexOf(pages[i]) > -1) {
-
-                _slaask.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-
-              }
-
-            }
-
-            </script>
           </pre>
       </section>
 
