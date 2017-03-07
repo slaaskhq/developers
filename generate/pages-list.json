@@ -17,7 +17,7 @@
     }
   },
   "ios-sdk": {
-    "name": "iOS SDK <b>(ALPHA)</b>",
+    "name": "iOS SDK",
     "pages": {
       "implementing-slaask": { "title": "Implementing Slaask" },
       "automatically-identify-your-users": { "title": "Automatically identify your users" },
@@ -25,7 +25,7 @@
     }
   },
   "android-sdk": {
-    "name": "Android SDK <b>(ALPHA)</b>",
+    "name": "Android SDK",
     "pages": {
       "implementing-slaask": { "title": "Implementing Slaask" },
       "automatically-identify-your-users": { "title": "Automatically identify your users" },
@@ -33,10 +33,11 @@
     }
   },
   "rest-api": {
-    "name": "REST API <b>(BETA)</b>",
+    "name": "REST API",
     "pages": {
       "find-my-secret-key": { "title": "Find my Secret Key" },
-      "faqs": { "title": "Manage my Knowledge Base" }
+      "faqs": { "title": "Manage my Knowledge Base" },
+      "analytics": { "title": "Widgets and Bots analytics" }
     }
   },
   "outgoing-webhooks": {
