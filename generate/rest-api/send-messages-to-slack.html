@@ -1,0 +1,447 @@
+<main class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <article class="main-content" role="main">
+
+      <header>
+        <h1>Send messages to Slack</h1>
+        <ol class="toc">
+          <li><a href="#bot-message">CREATE new BOT message</a></li>
+          <li><a href="#agent-message">CREATE new AGENT message</a></li>
+        </ol>
+      </header>
+
+      <section>
+        <p>First, learn how to <a href="find-my-secret-key.html" target="_blank">find your secret key</a>.</p>
+        <h2 id="bot-message"><a href="#bot-message">CREATE new BOT message</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>POST</b> https://slaask.com/api/messages</pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>conversation_token</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>text</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>from</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td>Should be <code>bot</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X POST "https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=bot"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=bot")
+  .post(null)
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("POST", "https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=bot");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://slaask.com/api/messages',
+  qs: {
+    secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+    conversation_token: '<span class="token property">conversation_token</span>',
+    text: '<span class="token property">text</span>'
+    from: 'bot'
+  };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/messages');
+$request->setMethod(HTTP_METH_POST);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+  'conversation_token' => '<span class="token property">conversation_token</span>',
+  'text' => '<span class="token property">text</span>'
+  'from' => 'bot'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/messages"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>", "conversation_token":"<span class="token property">conversation_token</span>", "text": "<span class="token property">text</span>, "from": "bot"}
+
+response = requests.request("POST", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=bot")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+        </p>
+        <pre>
+
+{
+  "success": true,
+  "result": {
+    "content": "Hello world!",
+    "from": "Your company Bot",
+    "from_image": "https://your-domain.com/bot.png",
+    "from_type": "bot",
+    "sent_at": "2017-03-13T17:29:52.661Z"
+  }
+}
+        </pre>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+          <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+          </pre>
+        </p>
+        <p>
+          Status: <b>404 Not Found</b>
+          <pre>
+
+{
+  "success": false,
+  "message": "Unknown Conversation Token"
+}
+          </pre>
+        </p>
+
+      </section>
+
+      <section>
+        <h2 id="agent-message"><a href="#agent-message">CREATE new AGENT message</a></h2>
+        <h3>Endpoint</h3>
+        <p>
+          <pre><b>POST</b> https://slaask.com/api/messages</pre>
+        </p>
+        <h3>Parameters</h3>
+        <p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Type</th>
+                <th>Optional?</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>secret_key</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>conversation_token</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>text</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>from</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td>Should be <code>agent</code></td>
+              </tr>
+              <tr>
+                <td><code>agent_slack_id</code></td>
+                <td>String</td>
+                <td>No</td>
+                <td>Should be the Slack <code>UID</code> of the user.</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <h3>Request</h3>
+        <div class="code-window">
+          <div class="window-bar">
+            <div class="circles">
+              <span class="circle circle-red"></span> <span class="circle circle-yellow"></span> <span class="circle circle-green"></span>
+            </div>
+            <div class="languages">
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn-curlpre btn active">cURL</label>
+                <label class="btn-javapre btn">Java</label>
+                <label class="btn-javascriptpre btn">Javascript</label>
+                <label class="btn-nodepre btn">NodeJS</label>
+                <label class="btn-phppre btn">PHP</label>
+                <label class="btn-pythonpre btn">Python</label>
+                <label class="btn-rubypre btn">Ruby</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-content">
+            <pre class="curlpre line-numbers" data-language="markup">
+
+curl -X POST "https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=agent&agent_slack_id=<span class="token property">agent_slack_id</span>"
+            </pre>
+            <pre class="javapre line-numbers hidden" data-language="markup">
+
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+  .url("https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=agent&agent_slack_id=<span class="token property">agent_slack_id</span>")
+  .post(null)
+  .build();
+
+Response response = client.newCall(request).execute();
+            </pre>
+            <pre class="javascriptpre line-numbers hidden" data-language="markup">
+
+var data = null;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(JSON.parse(this.responseText));
+  }
+});
+
+xhr.open("POST", "https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=agent&agent_slack_id=<span class="token property">agent_slack_id</span>");
+
+xhr.send(data);
+            </pre>
+            <pre class="nodepre line-numbers hidden" data-language="markup">
+
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://slaask.com/api/messages',
+  qs: {
+    secret_key: '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+    conversation_token: '<span class="token property">conversation_token</span>',
+    text: '<span class="token property">text</span>'
+    agent_slack_id: '<span class="token property">agent_slack_id</span>'
+    from: 'agent',
+  };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+            </pre>
+            <pre class="phppre line-numbers hidden" data-language="markup">
+
+<?php
+
+$request = new HttpRequest();
+$request->setUrl('https://slaask.com/api/messages');
+$request->setMethod(HTTP_METH_POST);
+
+$request->setQueryData(array(
+  'secret_key' => '<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>',
+  'conversation_token' => '<span class="token property">conversation_token</span>',
+  'text' => '<span class="token property">text</span>'
+  'agent_slack_id' => '<span class="token property">agent_slack_id</span>'
+  'from' => 'agent'
+));
+
+try {
+  $response = $request->send();
+
+  echo $response->getBody();
+} catch (HttpException $ex) {
+  echo $ex;
+}
+            </pre>
+            <pre class="pythonpre line-numbers hidden" data-language="markup">
+
+import requests
+
+url = "https://slaask.com/api/messages"
+
+querystring = {"secret_key":"<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>", "conversation_token":"<span class="token property">conversation_token</span>", "text": "<span class="token property">text</span>, "agent_slack_id": "<span class="token property">agent_slack_id</span>, "from": "agent"}
+
+response = requests.request("POST", url, headers={}, params=querystring)
+
+print(response.text)
+            </pre>
+            <pre class="rubypre line-numbers hidden" data-language="markup">
+
+require 'uri'
+require 'net/http'
+
+url = URI("https://slaask.com/api/messages?secret_key=<span class="token blue-property replace-with-api-key replace-with-api-key">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>&conversation_token=<span class="token property">conversation_token</span>&text=<span class="token property">text</span>&from=agent&agent_slack_id=<span class="token property">agent_slack_id</span>")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+
+response = http.request(request)
+puts response.read_body
+            </pre>
+          </div>
+        </div>
+        <h3>Response</h3>
+        <p>
+          Status: <b>200 OK</b>
+        </p>
+        <pre>
+
+{
+  "success": true,
+  "result": {
+    "content": "Hello world!",
+    "from": "John Doe",
+    "from_image": "https://your-domain.com/john.png",
+    "from_type": "agent",
+    "sent_at": "2017-03-13T17:29:52.661Z"
+  }
+}
+        </pre>
+        <h3>Errors</h3>
+        <p>
+          Status: <b>403 Forbidden</b>
+          <pre>
+
+{
+  "success": false,
+  "message": "Invalid Widget secret key"
+}
+          </pre>
+        </p>
+        <p>
+          Status: <b>404 Not Found</b>
+          <pre>
+
+{
+  "success": false,
+  "message": "Unknown Conversation Token"
+}
+          </pre>
+        </p>
+
+      </section>
+
+    </article>
+    <!-- END Main content -->
+  </div>
+</main>
