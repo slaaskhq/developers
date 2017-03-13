@@ -36,8 +36,8 @@
     "name": "REST API",
     "pages": {
       "find-my-secret-key": { "title": "Find my Secret Key" },
-      "send-messages-to-slack": { "title": "(<b>NEW</b>) Send messages to Slack" },
-      "analytics": { "title": "(<b>NEW</b>) Widgets and Bots analytics" },
+      "send-messages-to-slack": { "title": "(<b>NEW</b>) Send messages to Slack", "window_title": "Send messages to Slack" },
+      "analytics": { "title": "(<b>NEW</b>) Widgets and Bots analytics", "window_title": "Widgets and Bots analytics" },
       "faqs": { "title": "Manage my Knowledge Base" }
     }
   },
